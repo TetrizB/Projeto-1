@@ -3,7 +3,6 @@
     background-color: azure;
     color: black;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    
 }
