@@ -1,0 +1,91 @@
+body{
+    display: flex;
+    justify-content: center ; 
+}
+
+.Relatorio{
+    display: grid;
+    font-family: Arial, sans-serif;
+    border-style: groove;
+    border-color: #333;
+    width: 800px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.List{
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    list-style-position: inside;
+}
+.Titulo {
+    color: #333;
+}
+.Subtitulo {
+    color: #666;
+}
+p {
+    margin-bottom: 10px;
+}
+.ImgsEstacao{
+    display: flex ;
+   justify-content: space-around;
+}
+img{
+   width: 350px;
+   height: 300px;
+}
+.carousel-container {
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+.carousel-slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-img {
+    display: flex;
+    align-items: center;
+    width: 690px;
+    height: 550px;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+}
+.carousel-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.carousel-nav button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+.lightbox img {
+    width: 800px;
+    height: 600px;
+    max-width: 90%;
+    max-height: 90%;
+}
