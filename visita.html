@@ -1,28 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visita</title>
-</head>
-<body>
-<div class="evandroTitle">
-    <h1 class="title">
-        Visita Tecnica
-    </h1>
-</div>
-<br>
-<div class="Exercicio">
-    <h2 class="assunto">
-        Aqui ficará o texto de relatorio da visita técnica...
-    </h2>
-    <textarea name="texto" id="1" cols="30" rows="10">
+    <meta name="viewport" content="width=1080px, initial-scale=1.0">
+    <title>Relatório de Visita Tecnica</title>
+    <link rel="stylesheet" href="styles.css">
 
-    </textarea>
-    <br>
-    <h2 class="galery">
-        Aqui ficará a galeria de fotos...
-    </h2>
-</div>
+    <script>
+        // JavaScript para controlar o carrossel
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const images = document.querySelectorAll('.carousel-img');
+
+            slides[currentSlide].classList.remove('active');
+            images[currentSlide].classList.remove('active');
+
+            currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            images[currentSlide].classList.add('active');
+        }
+
+        function moveCarousel(direction) {
+            const wrapper = document.querySelector('.carousel-wrapper');
+            const slideWidth = document.querySelector('.carousel-slide').clientWidth;
+            const numSlides = document.querySelectorAll('.carousel-slide').length;
+            
+            if (direction === 'prev' && currentSlide > 0) {
+                currentSlide--;
+            } else if (direction === 'next' && currentSlide < numSlides - 1) {
+                currentSlide++;
+            }
+
+            wrapper.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        }
+
+        function openLightbox(index) {
+            const lightbox = document.querySelector('.lightbox');
+            const selectedImage = document.querySelectorAll('.carousel-img')[index];
+            const lightboxImage = document.querySelector('.lightbox img');
+
+            lightboxImage.src = selectedImage.src;
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.querySelector('.lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="Relatorio">
+        <div class="TituloRelatorio">
+            <h1 class="Titulo"> Visita Técnica Colorado-Oeste</h1>
+            <h2 class="Subtitulo">Informações Gerais</h2>
+            <p><strong>Data:</strong> 16 DE AGOSTO DE 2023</p>
+            <p><strong>Local:</strong> INSTITUTO FEDERAL DE RONDÔNIA CAMPUS COLORADO-OESTE</p>
+            <p><strong>Participantes:</strong> Alunos do 3 e
+                2 ano do curso técnico de informática
+                integrado ao ensino Médio</p>
+        </div>
+        <h2 class="Subtitulo">Objetivo da Visita</h2>
+        <p>Esta visita técnica teve como objetivo conhecer o Projeto Câmera Escura
+            e dar um tour pelo o campus.
+        </p>
+
+        <h2 class="Subtitulo">Atividades Realizadas</h2>
+        <p>Durante a visita, realizamos as seguintes atividades:</p>
+        <ul class="List">
+            <li>Almoço</li>
+            <li>Palestras dos Professores coordenadores dos projetos Câmera Escura, IFRO Mobile, Projeto Judô e o
+                Projeto Ensilagem</li>
+            <li>Inspeção das instalações do campus</li>
+            <li>conversa com os coordenadsores dos projetos</li>
+            <li>Análise de equipamentos</li>
+            <li>Análise dos animais</li>
+        </ul>
+        <div class="Texto">
+            <h2 class="Subtitulo">Resultados e Conclusões</h2>
+            <p>
+                Durante nossa visita técnica ao IFRO de Colorado-Oeste, exploramos o emocionante projeto Camera Escura,
+                que tem como seu objetivo primordial capturar filmagens que abrangem diversos projetos, como o ensino de
+                judô e a produção de silagem. Aprofundamos nosso conhecimento sobre a técnica da "regra dos terços", a
+                qual desempenha um papel vital na composição visual de fotografias e filmagens. Posteriormente,
+                aplicamos esse conceito em uma atividade direcionada pelo Professor Glauber, onde tivemos a tarefa de
+                fotografar o pitoresco campus.
+            </p>
+
+            <p>
+                Nesse processo, colhemos insights significativos. A abordagem da "regra dos terços" não apenas
+                acrescentou um novo patamar de profissionalismo às nossas composições visuais, mas também demonstrou a
+                capacidade de direcionar o foco do observador e transmitir uma narrativa mais impactante por meio das
+                imagens capturadas.
+            </p>
+
+            <p>
+                Nosso tour pelo campus se revelou uma jornada educativa e enriquecedora. Tivemos o privilégio de
+                explorar diversos aspectos da agricultura e criação de animais. As hortas hidropônicas demonstraram
+                métodos inovadores de cultivo, destacando a importância da sustentabilidade e eficiência na produção de
+                alimentos. A diversidade da criação de animais - de galinhas a ovinos e caprinos - evidenciou o
+                compromisso da instituição em promover a educação sobre práticas agrícolas e pecuárias.
+            </p>
+
+            <p>
+                Uma das experiências mais notáveis foi nossa visita à plantação de café, enfatizando a relevância desse
+                produto na economia local e nacional. Além disso, nosso encontro com Vanderley, o coordenador da Estação
+                Meteorológica do campus, foi excepcional. Obtivemos insights valiosos ao acessar dados meteorológicos
+                dos últimos 2 anos, revelando padrões climáticos e tendências sazonais que desempenham um papel crucial
+                nas atividades agrícolas e de pesquisa desenvolvidas no campus.
+            </p>
+            <div class="ImgsEstacao">
+                <img src="img/img2.png" alt="img2">
+            </div>
+            <p>
+                Em conclusão, nossa visita técnica ao IFRO de Colorado-Oeste proporcionou um ambiente de aprendizado
+                inigualável. O projeto Camera Escura nos introduziu à arte da cinematografia, enquanto a aplicação
+                prática da regra dos terços aprimorou nossas habilidades na criação visual. O tour pelo campus ampliou
+                nosso entendimento sobre práticas agrícolas e pecuárias sustentáveis, com destaque para a produção de
+                café e a importância dos dados meteorológicos na tomada de decisões informadas. Esta visita não apenas
+                expandiu nossos horizontes profissionais, mas também nos inspirou a explorar novas facetas do
+                conhecimento técnico.
+            </p>
+
+            <h2>Galeria da Visita Técnica</h2>
+
+    <!-- Carrossel de Imagens -->
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+                <img class="carousel-img active" src="/img/1.jpg" onclick="showSlide(0); openLightbox(0)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/2.jpg" onclick="showSlide(1); openLightbox(1)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/3.jpeg" onclick="showSlide(2); openLightbox(2)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/4.jpeg" onclick="showSlide(3); openLightbox(3)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/5.jpeg" onclick="showSlide(4); openLightbox(4)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/6.jpeg" onclick="showSlide(5); openLightbox(5)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/7.jpeg" onclick="showSlide(6); openLightbox(6)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/8.jpeg" onclick="showSlide(7); openLightbox(7)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/9.jpeg" onclick="showSlide(8); openLightbox(8)">
+            </div>
+            <div class="carousel-slide">
+                <img class="carousel-img" src="/img/10.jpeg" onclick="showSlide(9); openLightbox(9)">
+            </div>
+            <!-- Adicione mais divs para as outras imagens -->
+        </div>
+        <div class="carousel-nav">
+            <button onclick="moveCarousel('prev')">←</button>
+            <button onclick="moveCarousel('next')">→</button>
+        </div>
+    </div>
+    <div class="lightbox" onclick="closeLightbox()">
+        <img src="" alt="Imagem Ampliada">
+    </div>
+    </div>
 </body>
+
 </html>
