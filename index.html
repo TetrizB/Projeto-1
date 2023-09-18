@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página de Vídeos e Músicas</title>
+</head>
+<body>
+    <h1>Meus Vídeos e Músicas</h1>
+    
+    <h2>Vídeo 1</h2>
+    <video width="520" height="340" controls id="video1">
+        <source src="/Page.music/1118558_4k_Shiny_Reflection_3840x2160.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <h2>Música 1</h2>
+    <audio id="musica1" src="/Page.music/SnapInsta.io - Central Cee x Dave - Sprinter (Lyrics) (128 kbps).mp3" preload="auto"></audio>
+
+    <h2>Vídeo 2</h2>
+    <video width="520" height="340" controls id="video2" muted>
+        <source src="/Page.music/SnapInsta.io-Central Cee - Obsessed With You (Official Video).mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <h2>Música 2</h2>
+    <audio id="musica2" src="/Page.music/SnapInsta.io - Central Cee - Obsessed With You (Official Video) (128 kbps).mp3" preload="auto"></audio>
+
+    <script>
+        // Obtém elementos de vídeo e áudio
+        const video1 = document.getElementById("video1");
+        const musica1 = document.getElementById("musica1");
+        const video2 = document.getElementById("video2");
+        const musica2 = document.getElementById("musica2");
+
+        // Evento de reprodução do vídeo 1
+        video1.addEventListener("play", function() {
+            // Inicie a reprodução da música 1 quando o vídeo 1 for reproduzido
+            musica1.play();
+        });
+
+        // Evento de pausa do vídeo 1
+        video1.addEventListener("pause", function() {
+            // Pausa a reprodução da música 1 quando o vídeo 1 for pausado
+            musica1.pause();
+        });
+
+        // Evento de término do vídeo 1
+        video1.addEventListener("ended", function() {
+            // Reinicie o vídeo 1 quando ele terminar
+            video1.currentTime = 0;
+            video1.play();
+        });
+
+        // Evento de reprodução do vídeo 2
+        video2.addEventListener("play", function() {
+            // Inicie a reprodução da música 2 quando o vídeo 2 for reproduzido
+            musica2.play();
+        });
+
+        // Evento de pausa do vídeo 2
+        video2.addEventListener("pause", function() {
+            // Pausa a reprodução da música 2 quando o vídeo 2 for pausado
+            musica2.pause();
+        });
+
+        // Evento de término do vídeo 2
+        video2.addEventListener("ended", function() {
+            // Reinicie o vídeo 2 quando ele terminar
+            video2.currentTime = 0;
+            video2.play();
+        });
+    </script>
+</body>
+</html>
