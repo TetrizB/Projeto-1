@@ -196,12 +196,13 @@ margin-bottom: 10px;
     <span class="song-duration">00:00</span>     
 </div>
 <div class="controls">
-    <button class="btn backward-btn"><img src="../RadioMusic/images/pre.png" alt="ds" ></button>
+    <button class="btn backward-btn"><img src="/images/pre.png" alt="ds" ></button>
     <button class="play-btn pause">
         <span></span>   
         <span></span>  
     </button> 
-    <button class="btn forward-btn"><img src="../RadioMusic/images/nxt.png" alt="ds" ></button>
+    <button class="btn forward-btn"><img src="/images/nxt.png" alt="ds" ></button>
+    
 </div>
     </div>
     <script>
@@ -219,64 +220,65 @@ const backwardButton = document.querySelector('.backward-btn');
 
 const playlist = [
     {
-        music: 'Nome da Música 1',
+        music: 'Billionaire',
         artist: 'Buno Mars',
-        background: 'url(../RadioMusic/images/Bruninho1.jpg)',
-        source: '../RadioMusic/musics/Song 1.mp3'
+        background: 'url(/images/Bruninho1.jpg)',
+        source: '/page.music/bruno1.mp3'
     },
     {
-        music: 'Nome da Música 2',
-        artist: 'Buno Mars',
-        background: 'url(../RadioMusic/images/Bruninho2.jpg)',
-        source: '../RadioMusic/musics/Song 2.mp3'
+        music: 'Lost in Mars',
+        artist: 'Bruno Mars',
+        background: 'url(/images/Bruninho2.jpg)',
+        source: '/page.music/bruno2.mp3'
     },
+  
     {
-        music: 'Nome da Música 2',
-        artist: 'Buno Mars',
-        background: 'url(../RadioMusic/images/Bruninho3.jpg)',
-        source: '../RadioMusic/musics/Song 3.mp3'
-    },
-    {
-        music: 'Nome da Música 2',
+        music: 'Bounce',
         artist: 'Oliver Tree',
         background: 'url(../RadioMusic/images/tree1.jpg)',
-        source: '../RadioMusic/musics/Song 4.mp3'
+        source: '/page.music/tree1.mp3'
     },
     {
-        music: 'Nome da Música 2',
+        music: 'Going On',
         artist: 'Oliver Tree',
         background: 'url(../RadioMusic/images/tree2.jpg)',
-        source: '../RadioMusic/musics/Song 5.mp3'
+        source: '/page.music/tree2.mp3'
     },
     {
-        music: 'Nome da Música 2',
+        music: 'Miss You',
         artist: 'Oliver Tree',
         background: 'url(../RadioMusic/images/tree3.jpg)',
-        source: '../RadioMusic/musics/Song 1.mp3'
+        source: '/page.music/tree3.mp3'
     },
     {
-        music: 'Nome da Música 2',
+        music: 'Obsseced With You',
         artist: 'Central Cee',
         background: 'url(../RadioMusic/images/cee1.jpg)',
-        source: '../RadioMusic/musics/Song 2.mp3'
+        source: '/page.music/cee1.mp3'
     },
     {
-        music: 'Nome da Música 2',
+        music: 'Sprinter',
         artist: 'Central Cee',
         background: 'url(../RadioMusic/images/cee2.jpg)',
-        source: '../RadioMusic/musics/Song 3.mp3'
+        source: '/page.music/cee2.mp3'
     },
     {
-        music: 'Nome da Música 2',
+        music: 'I Love You',
         artist: 'Frank Sinatra',
         background: 'url(../RadioMusic/images/frank1.jpg)',
-        source: '../RadioMusic/musics/Song 4.mp3'
+        source: '/page.music/frank1.mp3'
     },
     {
-        music: 'Nome da Música 2',
+        music: 'Without You',
         artist: 'Kid Laroi',
         background: 'url(../RadioMusic/images/kid1.jpg)',
-        source: '../RadioMusic/musics/Song 5.mp3'
+        source: '/page.music/kid1.mp3'
+    },
+    {
+        music: 'Stay',
+        artist: 'Kid Laroi',
+        background: 'url(../RadioMusic/images/kid2.jpg)',
+        source: '/page.music/kid2.mp3'
     },
     // Adicione mais músicas à lista conforme necessário
 ];
@@ -352,3 +354,4 @@ backwardButton.addEventListener('click', prevTrack);
     
 </body>
 </html>
+
