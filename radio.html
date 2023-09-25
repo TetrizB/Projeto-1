@@ -19,7 +19,7 @@ body{
     height: 100vh;
     display: flex;
     justify-content: center;
-    background:#5f7a61 ;
+    background:#fff ;
     font-family: sans-serif;
     
 }
@@ -286,14 +286,26 @@ const playlist = [
 let currentTrackIndex = 0;
 let isPlaying = false;
 
-function loadTrack(trackIndex) {
-    const track = playlist[trackIndex];
-    audioPlayer.src = track.source;
-    musicNameElement.textContent = track.music;
-    artistNameElement.textContent = track.artist;
-    diskElement.style.backgroundImage = track.background;
-    isPlaying = false;
-}
+function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function loadTrack(trackIndex) {
+            const track = playlist[trackIndex];
+            audioPlayer.src = track.source;
+            musicNameElement.textContent = track.music;
+            artistNameElement.textContent = track.artist;
+            diskElement.style.backgroundImage = track.background;
+
+            // Define uma cor de fundo aleatória
+            const randomBackgroundColor = getRandomColor();
+            document.querySelector('.music-player').style.background = randomBackgroundColor;
+        }
 
 function playPause() {
     if (!isPlaying) {
