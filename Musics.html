@@ -1,75 +1,354 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página de Vídeos e Músicas</title>
+    <meta name="viewport" content="width=1080px, initial-scale=1.0">
+    <title>DjRickSom</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <h1>Meus Vídeos e Músicas</h1>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background:#5f7a61 ;
+    font-family: sans-serif;
     
-    <h2>Vídeo 1</h2>
-    <video width="520" height="340" controls id="video1">
-        <source src="img/Page.music/1118558_4k_Shiny_Reflection_3840x2160.mp4" type="video/mp4">
-        Seu navegador não suporta o elemento de vídeo.
-    </video>
+}
+.music-player{
+    width: 350px;
+    height: 550px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    overflow: hidden;
+    color: #d5eebb;
+}
+.music-name,
+.artist-name{
+    text-align: center;
+    text-transform: capitalize;
+}
+.music-name{
+font-size: 40px;
+font-weight: 500;
+margin-bottom: 10px;
+}
+.artist-name{
+    font-size: 20px;
+}
+.disk{
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-image: url(images/Bruninho1.jpg);
+    background-size: cover;
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.08);
+    animation: rotate 20s linear infinite;
+    animation-play-state: paused ;
+}
+.disk.play{
+    animation-play-state: running;
+}
+.disk::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #5f7a61; 
 
-    <h2>Música 1</h2>
-    <audio id="musica1" src="img/Page.music/SnapInsta.io - Central Cee x Dave - Sprinter (Lyrics) (128 kbps).mp3" preload="auto"></audio>
+}
 
-    <h2>Vídeo 2</h2>
-    <video width="520" height="340" controls id="video2" muted>
-        <source src="img/Page.music/SnapInsta.io-Central Cee - Obsessed With You (Official Video).mp4" type="video/mp4">
-        Seu navegador não suporta o elemento de vídeo.
-    </video>
+.song-slider{
+    width: 100%;
+    position: relative;
 
-    <h2>Música 2</h2>
-    <audio id="musica2" src="img/Page.music/SnapInsta.io - Central Cee - Obsessed With You (Official Video) (128 kbps).mp3" preload="auto"></audio>
 
+}
+.seek-bar{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    background: #7fc8a9;
+    overflow: hidden;
+    cursor: pointer;
+}
+.seek-bar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 1px;
+    height: 20px;
+    background: #000;
+    box-shadow: -400px 0 0 400px #d5eebb;
+}
+.current-time,
+.song-duration{
+    font-size: 14px;
+}
+.song-duration{
+    position: absolute;
+    right: 0;
+}
+.controls{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+
+}
+    .play-btn{
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #d5eebb;
+        cursor: pointer;
+        border: none;
+    }
+    .play-btn span{
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 30px;
+        border-radius: 2px;
+        background: #5f7a61;
+        transition: .5s;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .play-btn span:nth-child(2){
+        left: 55%;
+        transform-origin: center;
+    }
+
+    .play-btn.pause span:nth-child(2){
+        transform: translateY(-50%) scaleY(0);
+    }
+    .play-btn.pause span:nth-child(1){
+        width: 35%;
+        left: 53%;
+        transform: translate(-50%, -50%);
+        border-radius: 0;
+        clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+    }
+    .play-btn.pause{
+        animation: pulse 2s linear infinite;
+    }
+    @keyframes pulse{
+        0%{
+            box-shadow:0;
+        }
+        50%{
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+        100%{
+            box-shadow:0 0 0 5px rgba(255, 255, 255, 0.4);
+        }
+    }
+    .btn{
+        width: 40px;
+        height: 40px;
+        background: #d5eebb;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+    }
+    @keyframes rotate{
+        0%{
+            transform: rotate(0);
+        }
+        100%{
+            transform: rotate(360deg);
+
+        }
+    }
+    </style>
+
+    <div class="music-player">
+<h1 class="music-name">Music</h1>
+<p class="artist-name">Artist</p>
+<div class="disk "></div>
+<div class="song-slider">
+    <input type="range"   value="0"  class="seek-bar">
+    <span class="current-time">00:00</span> 
+    <span class="song-duration">00:00</span>     
+</div>
+<div class="controls">
+    <button class="btn backward-btn"><img src="../RadioMusic/images/pre.png" alt="ds" ></button>
+    <button class="play-btn pause">
+        <span></span>   
+        <span></span>  
+    </button> 
+    <button class="btn forward-btn"><img src="../RadioMusic/images/nxt.png" alt="ds" ></button>
+</div>
+    </div>
     <script>
-        // Obtém elementos de vídeo e áudio
-        const video1 = document.getElementById("video1");
-        const musica1 = document.getElementById("musica1");
-        const video2 = document.getElementById("video2");
-        const musica2 = document.getElementById("musica2");
+    
+    const audioPlayer = new Audio();
+const musicNameElement = document.querySelector('.music-name');
+const artistNameElement = document.querySelector('.artist-name');
+const diskElement = document.querySelector('.disk');
+const seekBar = document.querySelector('.seek-bar');
+const currentTimeElement = document.querySelector('.current-time');
+const songDurationElement = document.querySelector('.song-duration');
+const playButton = document.querySelector('.play-btn');
+const forwardButton = document.querySelector('.forward-btn');
+const backwardButton = document.querySelector('.backward-btn');
 
-        // Evento de reprodução do vídeo 1
-        video1.addEventListener("play", function() {
-            // Inicie a reprodução da música 1 quando o vídeo 1 for reproduzido
-            musica1.play();
-        });
+const playlist = [
+    {
+        music: 'Nome da Música 1',
+        artist: 'Buno Mars',
+        background: 'url(../RadioMusic/images/Bruninho1.jpg)',
+        source: '../RadioMusic/musics/Song 1.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Buno Mars',
+        background: 'url(../RadioMusic/images/Bruninho2.jpg)',
+        source: '../RadioMusic/musics/Song 2.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Buno Mars',
+        background: 'url(../RadioMusic/images/Bruninho3.jpg)',
+        source: '../RadioMusic/musics/Song 3.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Oliver Tree',
+        background: 'url(../RadioMusic/images/tree1.jpg)',
+        source: '../RadioMusic/musics/Song 4.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Oliver Tree',
+        background: 'url(../RadioMusic/images/tree2.jpg)',
+        source: '../RadioMusic/musics/Song 5.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Oliver Tree',
+        background: 'url(../RadioMusic/images/tree3.jpg)',
+        source: '../RadioMusic/musics/Song 1.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Central Cee',
+        background: 'url(../RadioMusic/images/cee1.jpg)',
+        source: '../RadioMusic/musics/Song 2.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Central Cee',
+        background: 'url(../RadioMusic/images/cee2.jpg)',
+        source: '../RadioMusic/musics/Song 3.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Frank Sinatra',
+        background: 'url(../RadioMusic/images/frank1.jpg)',
+        source: '../RadioMusic/musics/Song 4.mp3'
+    },
+    {
+        music: 'Nome da Música 2',
+        artist: 'Kid Laroi',
+        background: 'url(../RadioMusic/images/kid1.jpg)',
+        source: '../RadioMusic/musics/Song 5.mp3'
+    },
+    // Adicione mais músicas à lista conforme necessário
+];
 
-        // Evento de pausa do vídeo 1
-        video1.addEventListener("pause", function() {
-            // Pausa a reprodução da música 1 quando o vídeo 1 for pausado
-            musica1.pause();
-        });
+let currentTrackIndex = 0;
+let isPlaying = false;
 
-        // Evento de término do vídeo 1
-        video1.addEventListener("ended", function() {
-            // Reinicie o vídeo 1 quando ele terminar
-            video1.currentTime = 0;
-            video1.play();
-        });
+function loadTrack(trackIndex) {
+    const track = playlist[trackIndex];
+    audioPlayer.src = track.source;
+    musicNameElement.textContent = track.music;
+    artistNameElement.textContent = track.artist;
+    diskElement.style.backgroundImage = track.background;
+    isPlaying = false;
+}
 
-        // Evento de reprodução do vídeo 2
-        video2.addEventListener("play", function() {
-            // Inicie a reprodução da música 2 quando o vídeo 2 for reproduzido
-            musica2.play();
-        });
+function playPause() {
+    if (!isPlaying) {
+        audioPlayer.play();
+        diskElement.classList.add('play');
+        isPlaying = true;
+    } else {
+        audioPlayer.pause();
+        diskElement.classList.remove('play');
+        isPlaying = false;
+    }
+}
 
-        // Evento de pausa do vídeo 2
-        video2.addEventListener("pause", function() {
-            // Pausa a reprodução da música 2 quando o vídeo 2 for pausado
-            musica2.pause();
-        });
+function nextTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+    loadTrack(currentTrackIndex);
+    playPause();
+}
 
-        // Evento de término do vídeo 2
-        video2.addEventListener("ended", function() {
-            // Reinicie o vídeo 2 quando ele terminar
-            video2.currentTime = 0;
-            video2.play();
-        });
-    </script>
+function prevTrack() {
+    currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+    loadTrack(currentTrackIndex);
+    playPause();
+}
+
+function updateSeekBar() {
+    const currentTime = audioPlayer.currentTime;
+    const duration = audioPlayer.duration;
+
+    const currentTimeMinutes = Math.floor(currentTime / 60);
+    const currentTimeSeconds = Math.floor(currentTime % 60);
+    const durationMinutes = Math.floor(duration / 60);
+    const durationSeconds = Math.floor(duration % 60);
+
+    const currentTimeString = `${currentTimeMinutes}:${currentTimeSeconds < 10 ? '0' : ''}${currentTimeSeconds}`;
+    const durationString = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+
+    seekBar.value = (currentTime / duration) * 100;
+    currentTimeElement.textContent = currentTimeString;
+    songDurationElement.textContent = durationString;
+}
+
+seekBar.addEventListener('input', () => {
+    const seekTime = (seekBar.value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = seekTime;
+});
+
+audioPlayer.addEventListener('timeupdate', updateSeekBar);
+audioPlayer.addEventListener('ended', nextTrack);
+
+loadTrack(currentTrackIndex);
+
+playButton.addEventListener('click', playPause);
+forwardButton.addEventListener('click', nextTrack);
+backwardButton.addEventListener('click', prevTrack);
+
+    </script>   
+    
 </body>
 </html>
